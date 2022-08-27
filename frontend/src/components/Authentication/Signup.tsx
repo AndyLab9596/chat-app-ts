@@ -46,7 +46,7 @@ const Signup = () => {
                 },
             };
             const { data } = await axios.post(
-                "/api/user",
+                "/api/v1/user/register",
                 {
                     name,
                     email,
@@ -96,8 +96,8 @@ const Signup = () => {
             const data = new FormData();
             data.append("file", pics);
             data.append("upload_preset", "chat-app");
-            data.append("cloud_name", "piyushproj");
-            fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
+            data.append("cloud_name", "mor-software");
+            fetch("https://api.cloudinary.com/v1_1/mor-software/image/upload", {
                 method: "post",
                 body: data,
             })

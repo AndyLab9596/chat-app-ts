@@ -29,8 +29,6 @@ const Login = () => {
             setLoading(false);
             return;
         }
-
-        // console.log(email, password);
         try {
             const config = {
                 headers: {
@@ -39,12 +37,10 @@ const Login = () => {
             };
 
             const { data } = await axios.post(
-                "/api/user/login",
+                "/api/v1/user/login",
                 { email, password },
                 config
             );
-
-            // console.log(JSON.stringify(data));
             toast({
                 title: "Login Successful",
                 status: "success",

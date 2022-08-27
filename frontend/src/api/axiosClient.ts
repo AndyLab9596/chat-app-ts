@@ -1,25 +1,25 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 // console.log(localStorage.getItem('token'))
 const axiosClient = axios.create({
   baseURL: "/api/v1",
   headers: {
     "Content-Type": "application/json",
-    // "Authorization": `Bearer ${localStorage.getItem('token')}`
+    "Authorization": `Bearer ${localStorage.getItem('token')}`
   },
 });
 
 // // Add a request interceptor
-// axiosClient.interceptors.request.use(
-//   function (config: AxiosRequestConfig) {
-//     // Do something before request is sent
-//     return config;
-//   },
-//   function (error) {
-//     // Do something with request error
-//     return Promise.reject(error);
-//   }
-// );
+axiosClient.interceptors.request.use(
+  function (config: AxiosRequestConfig) {
+    // Do something before request is sent
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 
 // Add a response interceptor
 axiosClient.interceptors.response.use(
