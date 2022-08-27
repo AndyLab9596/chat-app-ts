@@ -7,6 +7,7 @@ import connectDB from './database/connectDB';
 import notFoundMiddleware from './middleware/not-found';
 import errorHandlerMiddleware from './middleware/error-handler';
 import userRoutes from './routes/userRoutes';
+import chatRoutes from './routes/chatRoutes';
 /**
  * Initial Config
  */
@@ -29,6 +30,7 @@ app.get('/api/v1', (req, res) => {
 })
 
 app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/chat', chatRoutes)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

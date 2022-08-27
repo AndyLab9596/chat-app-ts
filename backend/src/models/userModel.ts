@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import mongoose, { Types } from "mongoose";
+import mongoose, { Types, Document, PopulatedDoc } from "mongoose";
 import validator from 'validator';
 
-interface IUserSchema {
+export interface IUserSchema extends PopulatedDoc<Document>{
     name: string;
     email: string;
     password: string;
